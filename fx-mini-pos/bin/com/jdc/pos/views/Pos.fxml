@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+
+<VBox prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jdc.pos.views.Pos">
+   <children>
+      <HBox spacing="15.0">
+         <children>
+            <ComboBox fx:id="category" prefWidth="150.0" promptText="Category:" />
+            <TextField fx:id="idName" prefHeight="27.0" prefWidth="178.0" promptText="ID (or) Name" />
+            <Button mnemonicParsing="false" onAction="#clearSearch" prefHeight="27.0" prefWidth="83.0" text="CLEAR" />
+            <GridPane HBox.hgrow="ALWAYS">
+               <columnConstraints>
+                  <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label fx:id="headTotal" text="0">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </GridPane>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </HBox>
+      <HBox spacing="15.0">
+         <children>
+            <TableView fx:id="itemTable" prefHeight="200.0" prefWidth="450.0">
+               <columns>
+                  <TableColumn prefWidth="50.0" style="-fx-alignment: center;" text="ID" >
+                  	<cellValueFactory>
+                  		<PropertyValueFactory property="id"/>
+                  	</cellValueFactory>
+                  </TableColumn>
+                  <TableColumn prefWidth="150.0" style="-fx-alignment: left;" text="Category" >
+                  	<cellValueFactory>
+                  		<PropertyValueFactory property="category"/>
+                  	</cellValueFactory>
+                  </TableColumn>
+                  <TableColumn prefWidth="150.0" style="-fx-alignment: left;" text="Item Name" >
+                  	<cellValueFactory>
+                  		<PropertyValueFactory property="name"/>
+                  	</cellValueFactory>
+                  </TableColumn>
+                  <TableColumn prefWidth="100.0" style="-fx-alignment: right;" text="Price" >
+                  	<cellValueFactory>
+                  		<PropertyValueFactory property="price"/>
+                  	</cellValueFactory>	
+                  </TableColumn>
+               </columns>
+            </TableView>
+            <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <TableView fx:id="cartTable" prefHeight="200.0" prefWidth="415.0" VBox.vgrow="ALWAYS">
+                     <columns>
+                        <TableColumn prefWidth="150.0" text="Item Name">
+                        	<cellValueFactory>
+                        		<PropertyValueFactory property="item" />
+                        	</cellValueFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="90.0" text="Count" >
+                        	<cellValueFactory>
+                        		<PropertyValueFactory property="count" />
+                        	</cellValueFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="90.0" text="Unit Price" >
+                        	<cellValueFactory>
+                        		<PropertyValueFactory property="unitPrice" />
+                        	</cellValueFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="90.0" text="Total" >
+                        	<cellValueFactory>
+                        		<PropertyValueFactory property="total" />
+                        	</cellValueFactory>
+                        </TableColumn>
+                     </columns>
+                  </TableView>
+                  <GridPane>
+                     <columnConstraints>
+                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="309.0" minWidth="10.0" prefWidth="304.0" />
+                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="226.0" minWidth="10.0" prefWidth="110.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <Label text="Sub Total" />
+                        <Label text="Tax" GridPane.rowIndex="1" />
+                        <Label text="Total" GridPane.rowIndex="2" />
+                        <Button mnemonicParsing="false" onAction="#paid" prefWidth="110.0" text="PAID" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Button layoutX="315.0" layoutY="137.0" mnemonicParsing="false" onAction="#delete" prefWidth="110.0" text="DELETE" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <Button layoutX="315.0" layoutY="169.0" mnemonicParsing="false" onAction="#clearCart" prefWidth="110.0" text="CLEAR" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <Label fx:id="subTotal" text="0" GridPane.columnIndex="1">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="tax" text="0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="total" text="0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets right="20.0" />
+                     </VBox.margin>
+                  </GridPane>
+               </children>
+            </VBox>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" />
+         </padding>
+      </HBox>
+   </children>
+</VBox>
