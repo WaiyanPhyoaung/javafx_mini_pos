@@ -39,7 +39,7 @@ public class ItemServiceImpl implements ItemService{
 		
 		if(null != idName && !idName.isEmpty()) {
 			
-			Predicate<Item> id = item -> String.valueOf(item.getId())
+			Predicate<Item> id  = item -> String.valueOf(item.getId())
 					.equals(idName);
 			
 			Predicate<Item> name = item -> item.getName().toLowerCase()

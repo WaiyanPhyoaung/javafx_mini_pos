@@ -78,7 +78,7 @@ public class SaleServiceImpl implements SaleService {
 		}
 		
 		if(null != item) {
-			cond = cond.and(detail -> detail.getItem().equals(item));
+			cond = cond.and(detail -> detail.getItem().getId()==item.getId());
 		}
 		
 		if(null != dateFrom) {

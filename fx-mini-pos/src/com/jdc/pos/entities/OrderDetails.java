@@ -7,6 +7,7 @@ public class OrderDetails implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
+	private int id;
 	private int count;
 	private int subTotal;
 	private int total;
@@ -14,6 +15,15 @@ public class OrderDetails implements Serializable{
 	
 	private Item item;
 	private Voucher voucher;
+		
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public Voucher getVoucher() {
 		return voucher;
