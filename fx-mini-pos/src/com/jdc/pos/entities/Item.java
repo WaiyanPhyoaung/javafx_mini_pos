@@ -16,7 +16,7 @@ public class Item implements Serializable {
 
 	}
 	
-	public Item(String ... line) {
+	public Item(String[] line) {
 		id = Integer.parseInt(line[0]);
 		category = Category.valueOf(line[1]);
 		name = line[2];

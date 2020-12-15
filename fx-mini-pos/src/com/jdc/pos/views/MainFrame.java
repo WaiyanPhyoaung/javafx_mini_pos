@@ -51,7 +51,7 @@ public class MainFrame implements Initializable{
 	public void initialize(URL arg0, ResourceBundle arg1) {
     	
     	itemService = ItemService.getInstance();
-    	itemService.add("items.txt");
+    //	itemService.add("items.txt");
     	
 		showPos = event -> {
 			loadView("Pos.fxml");
@@ -119,6 +119,7 @@ public class MainFrame implements Initializable{
 			Parent root = FXMLLoader.load(MainFrame.class.getResource("MainFrame.fxml"));
 			Stage stage = new Stage();
 			stage.setScene(new Scene(root));
+			stage.setResizable(false);
 			stage.show();
 		} catch (Exception e) {
 			e.printStackTrace();

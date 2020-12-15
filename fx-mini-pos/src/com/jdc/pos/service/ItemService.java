@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.jdc.pos.entities.Category;
 import com.jdc.pos.entities.Item;
-import com.jdc.pos.service.memory.ItemServiceImpl;
+import com.jdc.pos.service.db.ItemServiceImpl;
 
 public interface ItemService {
 	

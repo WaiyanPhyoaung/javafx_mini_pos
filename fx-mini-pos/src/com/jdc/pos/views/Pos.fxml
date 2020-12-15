@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
@@ -7,21 +8,21 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.control.cell.PropertyValueFactory?>
 
-<VBox prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jdc.pos.views.Pos">
+<VBox prefWidth="850.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jdc.pos.views.Pos">
    <children>
       <HBox spacing="15.0">
          <children>
-            <ComboBox fx:id="category" prefWidth="150.0" promptText="Category:" />
-            <TextField fx:id="idName" prefHeight="27.0" prefWidth="178.0" promptText="ID (or) Name" />
-            <Button mnemonicParsing="false" onAction="#clearSearch" prefHeight="27.0" prefWidth="83.0" text="CLEAR" />
+            <ComboBox fx:id="category" prefWidth="140.0" promptText="Category:" />
+            <TextField fx:id="idName" prefHeight="27.0" prefWidth="140.0" promptText="ID (or) Name" />
+            <Button mnemonicParsing="false" onAction="#clearSearch" prefHeight="27.0" prefWidth="90.0" text="CLEAR" />
             <GridPane HBox.hgrow="ALWAYS">
                <columnConstraints>
                   <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" />
@@ -47,50 +48,66 @@
       </HBox>
       <HBox spacing="15.0">
          <children>
-            <TableView fx:id="itemTable" prefHeight="200.0" prefWidth="450.0">
+            <TableView fx:id="itemTable" prefHeight="200.0" prefWidth="425.0">
                <columns>
-                  <TableColumn prefWidth="50.0" style="-fx-alignment: center;" text="ID" >
+                  <TableColumn prefWidth="50.0" style="-fx-alignment: center;" text="ID">
                   	<cellValueFactory>
-                  		<PropertyValueFactory property="id"/>
+                  		<PropertyValueFactory property="id" />
                   	</cellValueFactory>
                   </TableColumn>
-                  <TableColumn prefWidth="150.0" style="-fx-alignment: left;" text="Category" >
+                  <TableColumn prefWidth="120.0" text="Category">
                   	<cellValueFactory>
-                  		<PropertyValueFactory property="category"/>
+                  		<PropertyValueFactory property="category" />
                   	</cellValueFactory>
+                     <styleClass>
+                        <String fx:value="column-pd-left10" />
+                        <String fx:value="column-ali-left" />
+                     </styleClass>
                   </TableColumn>
-                  <TableColumn prefWidth="150.0" style="-fx-alignment: left;" text="Item Name" >
+                  <TableColumn prefWidth="140.0" text="Item Name">
                   	<cellValueFactory>
-                  		<PropertyValueFactory property="name"/>
+                  		<PropertyValueFactory property="name" />
                   	</cellValueFactory>
+                     <styleClass>
+                        <String fx:value="column-ali-left" />
+                        <String fx:value="column-pd-left10" />
+                     </styleClass>
                   </TableColumn>
-                  <TableColumn prefWidth="100.0" style="-fx-alignment: right;" text="Price" >
+                  <TableColumn prefWidth="75.0" text="Price">
                   	<cellValueFactory>
-                  		<PropertyValueFactory property="price"/>
-                  	</cellValueFactory>	
+                  		<PropertyValueFactory property="price" />
+                  	</cellValueFactory>
+                     <styleClass>
+                        <String fx:value="column-pd-left10" />
+                        <String fx:value="column-ali-right" />
+                     </styleClass>	
                   </TableColumn>
                </columns>
             </TableView>
             <VBox spacing="10.0" HBox.hgrow="ALWAYS">
                <children>
-                  <TableView fx:id="cartTable" prefHeight="200.0" prefWidth="415.0" VBox.vgrow="ALWAYS">
+                  <TableView fx:id="cartTable" prefHeight="200.0" prefWidth="400.0" VBox.vgrow="ALWAYS">
                      <columns>
-                        <TableColumn prefWidth="150.0" text="Item Name">
+                        <TableColumn prefWidth="140.0" text="Item Name">
                         	<cellValueFactory>
                         		<PropertyValueFactory property="item" />
                         	</cellValueFactory>
+                           <styleClass>
+                              <String fx:value="column-ali-left" />
+                              <String fx:value="column-pd-left10" />
+                           </styleClass>
                         </TableColumn>
-                        <TableColumn prefWidth="90.0" text="Count" >
+                        <TableColumn prefWidth="90.0" styleClass="column-ali-centre" text="Count">
                         	<cellValueFactory>
                         		<PropertyValueFactory property="count" />
                         	</cellValueFactory>
                         </TableColumn>
-                        <TableColumn prefWidth="90.0" text="Unit Price" >
+                        <TableColumn prefWidth="90.0" styleClass="column-ali-right" text="Unit Price">
                         	<cellValueFactory>
                         		<PropertyValueFactory property="unitPrice" />
                         	</cellValueFactory>
                         </TableColumn>
-                        <TableColumn prefWidth="90.0" text="Total" >
+                        <TableColumn prefWidth="90.0" styleClass="column-ali-right" text="Total">
                         	<cellValueFactory>
                         		<PropertyValueFactory property="total" />
                         	</cellValueFactory>

@@ -101,8 +101,8 @@ public class Pos implements Initializable {
 			itemTable.getItems().addAll(items);
 			
 		} catch (Exception e) {
-			
-			MessageHandler.showAlert(e);
+			e.printStackTrace();
+		//	MessageHandler.showAlert(e);
 		}
     }
     

@@ -9,3 +9,18 @@
 .text-white {
 	-fx-text-fill: white;
 }
+.column-ali-left{
+	-fx-alignment: center-left ;
+}
+
+.column-ali-right{
+	-fx-alignment: center-right ;
+}
+
+.column-ali-centre{
+	-fx-alignment: center ;
+}
+
+.column-pd-left10{
+	-fx-padding: 0 0 0 10;
+}

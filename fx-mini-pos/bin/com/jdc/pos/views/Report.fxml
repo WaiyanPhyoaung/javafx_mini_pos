@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
@@ -10,7 +11,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jdc.pos.views.Report">
+<VBox prefHeight="500.0" prefWidth="850.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jdc.pos.views.Report">
    <children>
       <HBox spacing="15.0">
          <children>
@@ -29,7 +30,7 @@
       </HBox>
       <TableView fx:id="table" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
         <columns>
-          <TableColumn prefWidth="130.0" text="Sale Date">
+          <TableColumn prefWidth="110.0" styleClass="column-ali-centre" text="Sale Date">
           	<cellValueFactory>
           		<PropertyValueFactory property="saleDate" />
           	</cellValueFactory>
@@ -38,33 +39,41 @@
           	<cellValueFactory>
           		<PropertyValueFactory property="category" />
           	</cellValueFactory>
+               <styleClass>
+                  <String fx:value="column-ali-left" />
+                  <String fx:value="column-pd-left10" />
+               </styleClass>
           </TableColumn>
-            <TableColumn prefWidth="130.0" text="Item">
+            <TableColumn prefWidth="135.0" text="Item">
           	<cellValueFactory>
           		<PropertyValueFactory property="item" />
           	</cellValueFactory>
+               <styleClass>
+                  <String fx:value="column-ali-left" />
+                  <String fx:value="column-pd-left10" />
+               </styleClass>
           	 </TableColumn>
-            <TableColumn prefWidth="100.0" text="Price">
+            <TableColumn prefWidth="100.0" styleClass="column-ali-right" text="Price">
           	<cellValueFactory>
           		<PropertyValueFactory property="unitPrice" />
           	</cellValueFactory>
           	 </TableColumn>
-            <TableColumn prefWidth="100.0" text="Count">
+            <TableColumn prefWidth="92.0" styleClass="column-ali-right" text="Count">
           	<cellValueFactory>
           		<PropertyValueFactory property="count" />
           	</cellValueFactory>
           	 </TableColumn>
-            <TableColumn prefWidth="100.0" text="Sub Total ">
+            <TableColumn prefWidth="92.0" styleClass="column-ali-right" text="Sub Total ">
           	<cellValueFactory>
           		<PropertyValueFactory property="subTotal" />
           	</cellValueFactory>
           	 </TableColumn>
-            <TableColumn text="Tax">
+            <TableColumn prefWidth="92.0" styleClass="column-ali-right" text="Tax">
           	<cellValueFactory>
           		<PropertyValueFactory property="tax" />
           	</cellValueFactory>
           	 </TableColumn>
-            <TableColumn prefWidth="130.0" text="Total">
+            <TableColumn prefWidth="92.0" styleClass="column-ali-right" text="Total">
           	<cellValueFactory>
           		<PropertyValueFactory property="total" />
           	</cellValueFactory>
