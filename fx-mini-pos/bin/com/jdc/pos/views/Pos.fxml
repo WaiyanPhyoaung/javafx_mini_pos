@@ -97,7 +97,7 @@
                               <String fx:value="column-pd-left10" />
                            </styleClass>
                         </TableColumn>
-                        <TableColumn prefWidth="90.0" styleClass="column-ali-centre" text="Count">
+                        <TableColumn fx:id="count" prefWidth="90.0" styleClass="column-ali-centre" text="Count">
                         	<cellValueFactory>
                         		<PropertyValueFactory property="count" />
                         	</cellValueFactory>

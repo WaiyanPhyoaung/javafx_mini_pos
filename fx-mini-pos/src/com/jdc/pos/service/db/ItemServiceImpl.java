@@ -9,12 +9,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
 import com.jdc.pos.entities.Category;
 import com.jdc.pos.entities.Item;
 import com.jdc.pos.service.ItemService;
 import com.jdc.pos.util.ConnectionManager;
-import com.jdc.pos.util.MessageHandler;
+
 
 public class ItemServiceImpl implements ItemService {
 	

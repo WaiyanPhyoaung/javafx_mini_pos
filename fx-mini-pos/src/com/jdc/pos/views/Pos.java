@@ -18,9 +18,14 @@ import com.jdc.pos.util.MessageHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.util.StringConverter;
 
 public class Pos implements Initializable {
 
@@ -40,6 +45,8 @@ public class Pos implements Initializable {
     private Label tax;
     @FXML
     private Label total;
+    @FXML
+    private TableColumn<OrderDetails, Integer> count;
     
     private ItemService itemService;
     private SaleService saleService;
@@ -49,10 +56,10 @@ public class Pos implements Initializable {
     	cartTable.getItems().clear();
     	calculate();
     }
-
     
-    private void calculate() {
-    	subTotal.setText(getData(od -> od.getSubTotal()).toString());
+    private void calculate() {    	
+    	
+    	subTotal.setText(getData(od -> od.getSubTotal()).toString());   	
     	tax.setText(getData(od -> od.getTax()).toString());
     	total.setText(getData(od -> od.getTotal()).toString());
 	}
@@ -73,6 +80,7 @@ public class Pos implements Initializable {
     void delete() {
     	OrderDetails od = cartTable.getSelectionModel().getSelectedItem();
     	cartTable.getItems().remove(od);
+    	calculate();
     	cartTable.getSelectionModel().clearSelection();
     }
 
@@ -106,6 +114,7 @@ public class Pos implements Initializable {
 		}
     }
     
+    
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		
@@ -114,7 +123,7 @@ public class Pos implements Initializable {
 		
 		category.getItems().addAll(Category.values());
 		
-		headTotal.textProperty().bind(total.textProperty());		
+		headTotal.textProperty().bind(total.textProperty());	
 		
 		
 		category.valueProperty().addListener( (a,b,c) -> search());
@@ -136,12 +145,60 @@ public class Pos implements Initializable {
 					detail.setCount(detail.getCount() + 1);
 					detail.calculate();
 										
-				
-				cartTable.refresh();				
+					calculate();
+					cartTable.refresh();				
 			}
 		});
 		search();
-	}
+		
+		//context menu apply			
+			
+		MenuItem delete = new MenuItem("Delete");
+		delete.setOnAction( a -> delete());
+			
+		ContextMenu contextMenu = new ContextMenu(delete);			
+		cartTable.setContextMenu(contextMenu);
+		
+		//set column editable
+		
+		cartTable.setEditable(true);
+		
+		//converter for column table
+		
+		count.setCellFactory(TextFieldTableCell.forTableColumn(new StringConverter<Integer>() {
+
+			@Override
+			public Integer fromString(String string) {
+				try {
+					if(null != string && !string.isEmpty()) {
+						return Integer.parseInt(string);
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				return null;
+			}
+
+			@Override
+			public String toString(Integer integer) {
+				if(null!= integer) {
+					return integer.toString();
+				}
+				return null;
+			}
+		}));
+		
+		//event after commit in table_column
+		count.setOnEditCommit(event -> {
+			OrderDetails detail = event.getRowValue();
+			detail.setCount(event.getNewValue());
+			
+			detail.calculate();
+			cartTable.refresh();
+			calculate();
+		});
+	}	
+
 
 }
 

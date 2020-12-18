@@ -50,7 +50,7 @@ public class SaleServiceImpl implements SaleService {
 	public void paid(Voucher voucher) {
 		voucher.getList().forEach(od -> od.setVoucher(voucher));
 		vouchers.add(voucher);
-		System.out.println(vouchers.size());
+	//	System.out.println(vouchers.size());
 		saveFile(vouchers);
 		
 	}

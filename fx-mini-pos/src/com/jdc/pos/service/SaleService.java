@@ -7,7 +7,7 @@ import com.jdc.pos.entities.Category;
 import com.jdc.pos.entities.Item;
 import com.jdc.pos.entities.OrderDetails;
 import com.jdc.pos.entities.Voucher;
-import com.jdc.pos.service.memory.SaleServiceImpl;
+import com.jdc.pos.service.db.SaleServiceImpl;
 
 public interface SaleService{
 
