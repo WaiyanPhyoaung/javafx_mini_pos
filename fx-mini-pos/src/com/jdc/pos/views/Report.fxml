@@ -30,12 +30,17 @@
       </HBox>
       <TableView fx:id="table" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
         <columns>
-          <TableColumn prefWidth="110.0" styleClass="column-ali-centre" text="Sale Date">
+          <TableColumn prefWidth="100.0" styleClass="column-ali-centre" text="Sale Date">
           	<cellValueFactory>
           		<PropertyValueFactory property="saleDate" />
           	</cellValueFactory>
           </TableColumn>
-          <TableColumn prefWidth="130.0" text="Category">
+            <TableColumn prefWidth="100.0" text="Sale Time">
+            	<cellValueFactory>
+            		<PropertyValueFactory property="saleTime" />
+            	</cellValueFactory>
+            </TableColumn>
+          <TableColumn prefWidth="105.0" text="Category">
           	<cellValueFactory>
           		<PropertyValueFactory property="category" />
           	</cellValueFactory>
@@ -44,7 +49,7 @@
                   <String fx:value="column-pd-left10" />
                </styleClass>
           </TableColumn>
-            <TableColumn prefWidth="135.0" text="Item">
+            <TableColumn prefWidth="100.0" text="Item">
           	<cellValueFactory>
           		<PropertyValueFactory property="item" />
           	</cellValueFactory>
@@ -53,27 +58,27 @@
                   <String fx:value="column-pd-left10" />
                </styleClass>
           	 </TableColumn>
-            <TableColumn prefWidth="100.0" styleClass="column-ali-right" text="Price">
+            <TableColumn prefWidth="90.0" styleClass="column-ali-right" text="Price">
           	<cellValueFactory>
           		<PropertyValueFactory property="unitPrice" />
           	</cellValueFactory>
           	 </TableColumn>
-            <TableColumn prefWidth="92.0" styleClass="column-ali-right" text="Count">
+            <TableColumn prefWidth="85.0" styleClass="column-ali-right" text="Count">
           	<cellValueFactory>
           		<PropertyValueFactory property="count" />
           	</cellValueFactory>
           	 </TableColumn>
-            <TableColumn prefWidth="92.0" styleClass="column-ali-right" text="Sub Total ">
+            <TableColumn prefWidth="90.0" styleClass="column-ali-right" text="Sub Total ">
           	<cellValueFactory>
           		<PropertyValueFactory property="subTotal" />
           	</cellValueFactory>
           	 </TableColumn>
-            <TableColumn prefWidth="92.0" styleClass="column-ali-right" text="Tax">
+            <TableColumn prefWidth="85.0" styleClass="column-ali-right" text="Tax">
           	<cellValueFactory>
           		<PropertyValueFactory property="tax" />
           	</cellValueFactory>
           	 </TableColumn>
-            <TableColumn prefWidth="92.0" styleClass="column-ali-right" text="Total">
+            <TableColumn prefWidth="90.0" styleClass="column-ali-right" text="Total">
           	<cellValueFactory>
           		<PropertyValueFactory property="total" />
           	</cellValueFactory>

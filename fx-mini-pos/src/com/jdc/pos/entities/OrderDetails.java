@@ -2,6 +2,7 @@ package com.jdc.pos.entities;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class OrderDetails implements Serializable{
 
@@ -84,6 +85,9 @@ public class OrderDetails implements Serializable{
 	
 	public int getUnitPrice() {
 		return null == item ? 0 : item.getPrice();
+	}
+	public LocalTime getSaleTime() {
+		return voucher.getSaleTime();
 	}
 	
 	public void calculate() {

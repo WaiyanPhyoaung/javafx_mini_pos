@@ -79,7 +79,7 @@ public class Report implements Initializable{
 		table.getItems().clear();
 		List<OrderDetails> list = saleService.search(category.getValue(), item.getValue(), dateFrom.getValue(), dateTo.getValue());
 		
-	//	System.out.println(list.toString());
+		System.out.println(list.toString());
 		
 		table.getItems().addAll(list);
 	}
